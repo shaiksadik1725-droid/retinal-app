@@ -1,0 +1,120 @@
+/* ===== BODY & BACKGROUND ===== */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: url("/static/bg.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* ===== OVERLAY ===== */
+.overlay {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.45);
+    padding: 50px;
+}
+
+/* ===== MAIN CARD ===== */
+.main-card {
+    width: 90%;
+    max-width: 700px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+}
+
+/* ===== HEADER ===== */
+.header-section {
+    margin-bottom: 25px;
+}
+
+.header-image {
+    width: 150px;
+    height: 50px;
+    margin-bottom: 15px;
+}
+
+.header-section h1 {
+    margin: 0;
+    color: #222;
+    font-size: 28px;
+}
+
+/* ===== INFO BLOCKS (x1,x2,x3,x4) ===== */
+.content-section {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+    gap: 10px;
+}
+
+.info-block {
+    background: #f3f6fb;
+    flex: 1 1 45%;
+    padding: 15px;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    border-left: 6px solid #4a90e2;
+    text-align: center;
+}
+
+/* ===== UPLOAD SECTION ===== */
+.upload-section {
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
+.upload-label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+input[type="file"] {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 2px solid #4a90e2;
+    cursor: pointer;
+}
+
+/* ===== BUTTON ===== */
+button {
+    background: #4a90e2;
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: #357abd;
+    transform: scale(1.05);
+}
+
+/* ===== RESULT SECTION ===== */
+.result-section {
+    margin-top: 20px;
+    padding: 20px;
+    background: #eef4ff;
+    border-radius: 15px;
+}
+
+.uploaded-preview {
+    width: 220px;
+    max-width: 100%;
+    margin: 15px 0;
+    border-radius: 12px;
+    border: 3px solid #4a90e2;
+}

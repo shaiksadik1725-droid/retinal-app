@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eye Disease Detection</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="overlay">
+    <div class="main-card" style="max-width:700px;">
+
+        <!-- Header -->
+        <div class="header-section">
+            <img src="{{ url_for('static', filename='header.png') }}" class="header-image">
+            <h1>Eye Disease Detection Dashboard</h1>
+        </div>
+
+        <!-- Info blocks -->
+        <div class="content-section">
+            {% for cls in class_names %}
+            <div class="info-block">{{ cls }}</div>
+            {% endfor %}
+        </div>
+
+        <!-- Upload section -->
+        <div class="upload-section">
+            <form method="POST" enctype="multipart/form-data" action="{{ url_for('run_predict') }}">
+                <label class="upload-label">Choose Eye Image</label><br><br>
+                <input type="file" name="file" accept="image/*" required><br><br>
+                <button type="submit">Predict Disease</button>
+            </form>
+        </div>
+
+        <!-- Result section -->
+        {% if prediction %}
+        <div class="result-section">
+            <h2>Prediction: {{ prediction }}</h2>
+            <p>Confidence: {{ confidence }}%</p>
+            <img src="{{ image_path }}" class="uploaded-preview">
+        </div>
+        {% endif %}
+
+        <!-- Error section -->
+        {% if error %}
+        <div class="error-section">
+            <p style="color:red;">{{ error }}</p>
+        </div>
+        {% endif %}
+
+    </div>
+</div>
+</body>
+</html>
