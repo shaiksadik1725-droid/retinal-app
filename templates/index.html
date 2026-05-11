@@ -3,52 +3,71 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Eye Disease Detection</title>
+<title>Eye Disease Detection — AUM</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 <div class="overlay">
-    <div class="main-card" style="max-width:700px;">
+    <div class="main-card">
 
         <!-- Header -->
         <div class="header-section">
-            <img src="{{ url_for('static', filename='header.png') }}" class="header-image">
-            <h1>Eye Disease Detection Dashboard</h1>
+            <img src="{{ url_for('static', filename='header.png') }}" class="header-image" alt="AUM Logo">
+            <div class="header-text">
+                <h1>Eye Disease <span>Detection</span> Dashboard</h1>
+                <div class="header-badge">AI-Powered Diagnosis</div>
+            </div>
         </div>
 
+        <!-- Presented By -->
+        <p class="section-label">Presented By</p>
         <div class="content-section">
-    <div class="info-block">X1</div>
-    <div class="info-block">X2</div>
-    <div class="info-block">X3</div>
-    <div class="info-block">X4</div>
-</div>
+            <div class="info-block">X1</div>
+            <div class="info-block">X2</div>
+            <div class="info-block">X3</div>
+            <div class="info-block">X4</div>
+        </div>
+
+        <div class="section-divider"></div>
 
         <!-- Upload section -->
         <div class="upload-section">
+            <p class="section-label">Upload Retinal Image</p>
             <form method="POST" enctype="multipart/form-data" action="{{ url_for('run_predict') }}">
-                <label class="upload-label">Choose Eye Image</label><br><br>
-                <input type="file" name="file" accept="image/*" required><br><br>
-                <button type="submit">Predict Disease</button>
+                <div class="upload-dropzone" id="dropzone">
+                    <span class="upload-icon">🔬</span>
+                    <p><strong>Drag & drop</strong> your eye image here</p>
+                    <p class="upload-hint">or click to browse — PNG, JPG, JPEG, BMP, WEBP</p>
+                    <input type="file" name="file" accept="image/*" required id="fileInput">
+                </div>
+                <div class="file-name-display" id="fileNameDisplay">No file selected</div>
+                <button type="submit">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                    Analyse Image
+                </button>
             </form>
         </div>
 
-        <!-- Result section -->
-        {% if prediction %}
-        <div class="result-section">
-            <h2>Prediction: {{ prediction }}</h2>
-            <p>Confidence: {{ confidence }}%</p>
-            <img src="{{ image_path }}" class="uploaded-preview">
-        </div>
+        {% if error %}
+        <div class="error-section">⚠ {{ error }}</div>
         {% endif %}
 
-        <!-- Error section -->
-        {% if error %}
-        <div class="error-section">
-            <p style="color:red;">{{ error }}</p>
+        <div class="card-footer">
+            American University of the Middle East &nbsp;·&nbsp; College of Business Administration
         </div>
-        {% endif %}
 
     </div>
 </div>
+<script>
+const input = document.getElementById('fileInput');
+const display = document.getElementById('fileNameDisplay');
+const dropzone = document.getElementById('dropzone');
+input.addEventListener('change', () => {
+    if (input.files.length > 0) {
+        display.textContent = '📎 ' + input.files[0].name;
+        dropzone.style.borderColor = '#CC1111';
+    }
+});
+</script>
 </body>
 </html>
