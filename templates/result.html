@@ -31,7 +31,42 @@
             <h2>Uploaded Image</h2>
             <img src="{{ image_path }}" class="uploaded-preview">
             <h2>Prediction: {{ prediction }}</h2>
-            <p>Confidence: {{ confidence }}%</p>
+
+            <!-- Suggestion block -->
+            {% if prediction == 'cataract' %}
+            <div class="suggestion-block suggestion-warning">
+                <span class="suggestion-icon">👁️</span>
+                <div>
+                    <p class="suggestion-title">You may have Cataract.</p>
+                    <p class="suggestion-text">Clouding of the eye's lens has been detected. Please visit an ophthalmologist as soon as possible for a full examination and to discuss treatment options.</p>
+                </div>
+            </div>
+            {% elif prediction == 'diabetic_retinopathy' %}
+            <div class="suggestion-block suggestion-warning">
+                <span class="suggestion-icon">⚠️</span>
+                <div>
+                    <p class="suggestion-title">You may have Diabetic Retinopathy.</p>
+                    <p class="suggestion-text">Signs of diabetic damage to the retina have been detected. Please consult a specialist urgently to prevent further vision loss and manage your blood sugar levels.</p>
+                </div>
+            </div>
+            {% elif prediction == 'glaucoma' %}
+            <div class="suggestion-block suggestion-warning">
+                <span class="suggestion-icon">🔴</span>
+                <div>
+                    <p class="suggestion-title">You may have Glaucoma.</p>
+                    <p class="suggestion-text">Increased pressure or optic nerve changes associated with glaucoma have been detected. Please visit a doctor immediately — early treatment is key to preserving your vision.</p>
+                </div>
+            </div>
+            {% elif prediction == 'normal' %}
+            <div class="suggestion-block suggestion-normal">
+                <span class="suggestion-icon">✅</span>
+                <div>
+                    <p class="suggestion-title">Your eyes appear healthy!</p>
+                    <p class="suggestion-text">No signs of disease were detected. Keep up with regular eye check-ups and maintain a healthy lifestyle to protect your vision.</p>
+                </div>
+            </div>
+            {% endif %}
+
             <a href="{{ url_for('home') }}"><button>Upload Another Image</button></a>
         </div>
 

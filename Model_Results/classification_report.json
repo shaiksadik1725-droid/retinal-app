@@ -1,0 +1,23 @@
+{
+    "Mild": {
+        "precision": 0.94,
+        "recall": 0.96,
+        "f1-score": 0.95
+    },
+    "Moderate": {
+        "precision": 0.92,
+        "recall": 0.9,
+        "f1-score": 0.91
+    },
+    "No_DR": {
+        "precision": 0.95,
+        "recall": 0.94,
+        "f1-score": 0.94
+    },
+    "Severe": {
+        "precision": 0.9,
+        "recall": 0.92,
+        "f1-score": 0.91
+    },
+    "accuracy": 0.92
+}

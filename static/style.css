@@ -330,3 +330,47 @@ button:active { transform: translateY(0); }
     font-size: 11px;
     color: #9ca3af;
 }
+/* SUGGESTION BLOCK */
+.suggestion-block {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin: 18px 0 10px;
+    padding: 16px 18px;
+    border-radius: var(--radius-md);
+    text-align: left;
+    animation: cardIn 0.5s ease both;
+}
+
+.suggestion-warning {
+    background: #fff8f8;
+    border: 1.5px solid rgba(204,17,17,0.25);
+}
+
+.suggestion-normal {
+    background: #f0fdf4;
+    border: 1.5px solid rgba(22,163,74,0.25);
+}
+
+.suggestion-icon {
+    font-size: 26px;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.suggestion-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 5px;
+}
+
+.suggestion-warning .suggestion-title { color: var(--red); }
+.suggestion-normal  .suggestion-title { color: var(--green); }
+
+.suggestion-text {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
