@@ -1,20 +1,58 @@
 # Retinal Disease Classification Web Application
 
-A computer-vision research prototype that classifies retinal images using a trained convolutional neural network and exposes the model through a Flask web application.
+<p align="center">
+  <strong>Computer vision + deep learning + Flask for retinal image classification</strong>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-ML-3776AB?logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/TensorFlow-Keras-FF6F00?logo=tensorflow&logoColor=white" />
+  <img src="https://img.shields.io/badge/Flask-Web_App-000000?logo=flask&logoColor=white" />
+</p>
+
+## Project at a Glance
+
+| Item | Details |
+|---|---|
+| Domain | Medical image classification |
+| Core approach | Convolutional neural network |
+| Interface | Flask web application |
+| Inputs | Retinal images |
+| Output | Predicted class and confidence |
+| Status | Academic / research prototype |
 
 ## Overview
 
-The project combines deep learning, image preprocessing, model inference, and a browser-based interface. Users upload a retinal image, the application validates the file, runs the trained TensorFlow/Keras model, and returns the predicted class with a confidence score.
+This project combines image preprocessing, TensorFlow/Keras inference, and a browser-based Flask interface. A user uploads a retinal image, the application validates the input, preprocesses it for the trained model, and displays the predicted class with a confidence score.
+
+## Visual Preview
+
+<p align="center">
+  <img src="Images/Picture1.png" width="48%" alt="Application preview" />
+  <img src="Model_Results/confusion_matrix_normalized.png" width="48%" alt="Normalized confusion matrix" />
+</p>
 
 ## Main Features
 
 - CNN-based retinal image classification
-- Flask web interface for image upload and inference
-- Support for PNG, JPG, JPEG, BMP, and WebP images
+- Browser-based image upload and inference
+- Support for PNG, JPG, JPEG, BMP, and WebP
 - Saved Keras model and class-index mapping
-- Training and model-plot utilities
-- Result pages for prediction output
+- Training and evaluation plots
+- Prediction result page
 - Health/status endpoint for deployment checks
+
+## System Flow
+
+```mermaid
+flowchart LR
+    A[Retinal Image] --> B[Upload & Validation]
+    B --> C[Resize + Normalize]
+    C --> D[TensorFlow / Keras CNN]
+    D --> E[Class Probabilities]
+    E --> F[Prediction + Confidence]
+    F --> G[Flask Result Page]
+```
 
 ## Technology Stack
 
@@ -26,7 +64,7 @@ The project combines deep learning, image preprocessing, model inference, and a 
 - HTML / CSS
 - Gunicorn
 
-## Project Structure
+## Repository Structure
 
 ```text
 retinal-app/
@@ -43,14 +81,6 @@ retinal-app/
 └── Model_Results/
 ```
 
-## How It Works
-
-1. A user uploads a retinal image through the web interface.
-2. The image is stored temporarily in the application upload folder.
-3. The image is resized to the model input size and normalized.
-4. The trained CNN produces class probabilities.
-5. The application displays the predicted retinal class and confidence.
-
 ## Run Locally
 
 ```bash
@@ -60,26 +90,31 @@ pip install -r requirements.txt
 python app.py
 ```
 
-Open:
+Then open:
 
 ```text
 http://localhost:5000
 ```
 
-## Research / Educational Use
+## Model Evidence
 
-This repository is an academic and research prototype. Model predictions should not be treated as a medical diagnosis or used as a substitute for professional clinical evaluation.
+The repository includes training curves, confusion matrices, classification-report files, and example predictions so model behavior can be inspected rather than presented only as a final application.
 
-## Future Improvements
+## Limitations
 
-- Add external validation on independent datasets
-- Add explainability visualizations such as Grad-CAM
-- Improve dataset documentation and reproducibility
-- Add automated tests and continuous integration
-- Package model configuration and preprocessing more formally
+This is an academic research prototype. It has not been clinically validated and must not be used as a substitute for professional medical diagnosis.
+
+## Future Work
+
+- External validation on independent retinal datasets
+- Grad-CAM or similar explainability methods
+- Stronger dataset documentation and reproducibility
+- Automated tests and CI
+- Model/version tracking
+- Deployment hardening
 
 ## Author
 
 **Sadik Shaik**
 
-Computer Engineering / AI & Embedded Systems Projects
+Computer Engineering · Artificial Intelligence · Embedded Systems
